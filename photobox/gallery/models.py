@@ -1,3 +1,4 @@
+from unicodedata import name
 from django.db import models
 
 # Create your models here.
@@ -17,5 +18,12 @@ class Image(models.Model):
 
     def __str__(self): 
         return self.caption
+
+class Location(models.Model):
+    name=models.CharField(null=True, max_length=100, blank=True)
+    date_created=models.DateTimeField()     
+
+    def __str__(self): 
+        return self.name
 
 
