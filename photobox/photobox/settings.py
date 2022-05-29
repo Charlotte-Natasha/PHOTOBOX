@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'photobox.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'photobox',
+        'NAME': 'photos',
         'USER': 'natasha245',
     'PASSWORD':'tashapassword',
     }
