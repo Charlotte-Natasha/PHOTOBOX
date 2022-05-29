@@ -5,5 +5,6 @@ from .models import *
 def index(request):
 
     photos = Image.objects.all()
+    categories = Category.objects.all()
 
-    return render(request, 'gallery/index.html', {'photos':photos})
+    return render(request, 'gallery/index.html', {'photos':photos, 'categories':categories})
