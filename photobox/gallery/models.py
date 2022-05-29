@@ -9,6 +9,7 @@ class Category(models.Model):
 
 
 class Image(models.Model):
+    image=models.ImageField(upload_to="images")
     caption=models.CharField(max_length=100)
     description=models.CharField(max_length=200)
     date_created=models.DateTimeField()
