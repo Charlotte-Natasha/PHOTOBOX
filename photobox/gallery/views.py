@@ -1,5 +1,9 @@
 from django.shortcuts import render
+from .models import *
 
 # Create your views here.
 def index(request):
-    return render(request, 'gallery/index.html')
+
+    photos = Image.object.all()
+
+    return render(request, 'gallery/index.html', {'photos':photos})
