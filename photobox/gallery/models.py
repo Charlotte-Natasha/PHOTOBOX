@@ -8,6 +8,12 @@ class Category(models.Model):
     def __str__(self): 
         return self.title 
 
+class Location(models.Model):
+    name=models.CharField(null=True, max_length=100, blank=True)
+    date_created=models.DateTimeField()     
+
+    def __str__(self): 
+        return self.name
 
 class Image(models.Model):
     image=models.ImageField(upload_to="images", null=True, blank=True)
@@ -15,15 +21,10 @@ class Image(models.Model):
     description=models.CharField(max_length=200)
     date_created=models.DateTimeField()
     category=models.ForeignKey(Category, on_delete=models.CASCADE)
+    location=models.ForeignKey(Location, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self): 
         return self.caption
 
-class Location(models.Model):
-    name=models.CharField(null=True, max_length=100, blank=True)
-    date_created=models.DateTimeField()     
-
-    def __str__(self): 
-        return self.name
 
 
