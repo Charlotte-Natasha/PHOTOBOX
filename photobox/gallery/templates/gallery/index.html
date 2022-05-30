@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <div class="container" style="display: flex; justify-content: flex-end;">
     <div class="dropdown">
         <button class="btn dropdown-toggle text-white" style="background-color: #14110F;" type="button"
@@ -23,14 +24,14 @@
             <h5 class="card-title">Caption: {{photo.caption}}</h5>
             <p class="card-text">Location: {{photo.location}}</p>
             <p>Time: {{photo.date_created}}</p>
-            <!-- Button trigger modal -->
+            <!-- Button trigger modal  -->
             <button type="button" class="btn text-white" style="background-color: #14110F;" data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop">View</button>
+                data-bs-target="#staticBackdrop"> View </button>
 
         </div>
     </div>
     {% endfor %}
-    <!-- Modal -->
+    <!-- Modal  -->
     {% for photo in photos %}
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -50,5 +51,5 @@
         </div>
     </div>
 </div>
-{% endfor %}
+{% endfor %} 
 {% endblock %}

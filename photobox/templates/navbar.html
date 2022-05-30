@@ -1,24 +1,11 @@
 <section class="text-center" style="background-color: #D9C5B2;">
+    <div class="input-group col-xs-2">
+        <input type="search" class="form-control rounded" placeholder="Search" size="20o" aria-label="Search" aria-describedby="search-addon" />
+        <button type="button" class="btn btn-outline-primary">search</button>
+    </div>
     <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-bold fst-italic"> Photo-Box</h1>
             <p class="lead my-3">View our amazing catalog of our favorite photos. </p>
-            <p>
-                <div class="dropdown">
-                    <button class="btn dropdown-toggle text-white" style="background-color: #14110F;" type="button"
-                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categories
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        {% for x in categories %}
-                        <li><a class="dropdown-item" href="{% url 'category' x.id %}">{{x.title}}</a></li>
-                        {% endfor %}
-                        {% for x in locations %}
-                        <li><a class="dropdown-item" href="{% url 'category' x.id %}">{{x.name}}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </p>
-        </div>
     </div>
-</section>
+</section> 
