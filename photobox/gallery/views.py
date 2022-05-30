@@ -25,7 +25,6 @@ def location(request, pk):
 
     return render(request, 'gallery/index.html', context)
 
-def search(request, pk):
+def search(request):
 
-
-        return render(request, 'gallery/index.html')
+    return render(request, 'gallery/category.html')
