@@ -1,0 +1,1 @@
+web: gunicorn photobox.wsgi --log-file -
