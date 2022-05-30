@@ -9,11 +9,12 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             {% for x in categories %}
-            <li><a class="dropdown-item" href="#">{{x.title}}</a></li>
+            <li><a class="dropdown-item" href="{% url 'category' x.id %}">{{x.title}}</a></li>
             {% endfor %}
         </ul>
     </div>
 </div>
+
 <div class="container " style="display: flex; justify-content:center;">
     {% for photo in photos %}
     <div class="card" style="width: 18rem; margin: 8px;">
@@ -26,26 +27,27 @@
             <button type="button" class="btn text-white" style="background-color: #14110F;" data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop">View</button>
 
-
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            Description: {{photo.description}}
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     {% endfor %}
+    <!-- Modal -->
+    {% for photo in photos %}
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Description: {{photo.description}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
 {% endblock %}
