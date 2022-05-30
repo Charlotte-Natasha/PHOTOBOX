@@ -26,8 +26,6 @@ def location(request, pk):
     return render(request, 'gallery/index.html', context)
 
 def search(request, pk):
-    if 'category' in request.GET and request.GET("category"):
-        search_term = request.GET.get("category")
-        searched_images = Image.search_by_category(search_term)
 
-        return render(request, 'gallery/index.html', {'photos':searched_images, 'category':search_term})
+
+        return render(request, 'gallery/index.html')
