@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-import django_on_heroku
-import dj_database_url
-from decouple import config
+# import django_on_heroku
+# import dj_database_url
+# from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,9 +28,9 @@ SECRET_KEY = 'django-insecure-rspu-l#34@vzob5%o)vvj-yo6jy*r&86_a4x2(zzp4_*)^w$zy
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-MODE='prod'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'photo--box.herokuapp.com']
+
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -82,22 +82,22 @@ WSGI_APPLICATION = 'photobox.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-if MODE =="dev":
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'photos',
-            'USER': 'natasha245',
-        'PASSWORD':'tashapassword',
-        }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'photos',
+        'USER': 'natasha245',
+    'PASSWORD':'tashapassword',
     }
-# production
-else:
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=('DATABASE_URL')
-        )
-    }
+}
+# # production
+# else:
+#     DATABASES = {
+#         'default': dj_database_url.config(
+#             default=('DATABASE_URL')
+#         )
+#     }
 
 # db_from_env = dj_database_url.config(conn_max_age=500)
 # DATABASES['default'].update(db_from_env)
@@ -147,5 +147,5 @@ MEDIA_ROOT=os.path.join(BASE_DIR,"media/")
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
-django_on_heroku.settings(locals())
+# django_on_heroku.settings(locals())
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
