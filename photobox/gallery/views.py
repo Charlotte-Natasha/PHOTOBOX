@@ -28,7 +28,8 @@ def location(request, pk):
 def search(request):
     if request.method == "POST":
         searched = request.POST('searched')
+        photos = Image.objects.filter()
 
-        return render(request, 'gallery/category.html', {'searched':searched})
+        return render(request, 'gallery/category.html', {'searched':searched, 'photos':photos})
     else:
-        return render(request, 'gallery/category.html', {'searched':searched})   
+        return render(request, 'gallery/category.html', {'searched':searched, 'photos':photos})   
