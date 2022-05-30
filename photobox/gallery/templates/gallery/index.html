@@ -15,6 +15,19 @@
         </ul>
     </div>
 </div>
+<div class="container">
+    <div class="dropdown">
+        <button class="btn dropdown-toggle text-white" style="background-color: #14110F;" type="button"
+            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Location
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            {% for location in locations %}
+            <li><a class="dropdown-item" href="{% url 'location' location.id %}">{{location.name}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 
 <div class="container " style="display: flex; justify-content:center;">
     {% for photo in photos %}
@@ -27,7 +40,6 @@
             <!-- Button trigger modal  -->
             <button type="button" class="btn text-white" style="background-color: #14110F;" data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop"> View </button>
-
         </div>
     </div>
     {% endfor %}
