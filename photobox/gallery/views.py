@@ -26,5 +26,9 @@ def location(request, pk):
     return render(request, 'gallery/index.html', context)
 
 def search(request):
+    if request.method == "POST":
+        searched = request.POST('searched')
 
-    return render(request, 'gallery/category.html')
+        return render(request, 'gallery/category.html', {'searched':searched})
+    else:
+        return render(request, 'gallery/category.html', {'searched':searched})   

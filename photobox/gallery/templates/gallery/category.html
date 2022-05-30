@@ -1,19 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<center>
+    {% if searched%}
+<h1>You searched for.. {{searched}}</h1>
 
-<div class="container" style="display: flex; justify-content: flex-end;">
-    <div class="dropdown">
-        <button class="btn dropdown-toggle text-white" style="background-color: #14110F;" type="button"
-            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Categories
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            {% for x in categories %}
-            <li><a class="dropdown-item" href="{% url 'category' x.id %}">{{x.title}}</a></li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+{% else %}
+
+<h1>Hey, you forgot o input a search name.. </h1>
+    {% endif %}
+</center>
 
 {% endblock %}
