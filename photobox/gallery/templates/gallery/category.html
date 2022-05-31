@@ -4,10 +4,14 @@
 <center>
     {% if searched%}
 <h1>You searched for.. {{searched}}</h1>
+<br>
+{% for x in category %}
+{{ category }} - {{x.title}}
+{% endfor %}
 
 {% else %}
 
-<h1>Hey, you forgot o input a search name.. </h1>
+<h1>Hey, you forgot to input a search name.. </h1>
     {% endif %}
 </center>
 

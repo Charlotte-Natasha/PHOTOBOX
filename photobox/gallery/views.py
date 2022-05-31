@@ -6,8 +6,9 @@ def index(request):
 
     photos = Image.objects.all()
     categories = Category.objects.all()
+    locations = Location.objects.all()
 
-    return render(request, 'gallery/index.html', {'photos':photos, 'categories':categories})
+    return render(request, 'gallery/index.html', {'photos':photos, 'categories':categories, 'locations':locations})
 
 def category(request, pk):
 
@@ -28,8 +29,8 @@ def location(request, pk):
 def search(request):
     if request.method == "POST":
         searched = request.POST('searched')
-        photos = Image.objects.filter()
+        category = Category.objects.filter(title__contains=searched)
 
-        return render(request, 'gallery/category.html', {'searched':searched, 'photos':photos})
+        return render(request, 'gallery/category.html', {'searched':searched, 'category':category})
     else:
-        return render(request, 'gallery/category.html', {'searched':searched, 'photos':photos})   
+        return render(request, 'gallery/category.html', {})   
