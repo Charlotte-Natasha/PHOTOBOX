@@ -1,5 +1,5 @@
 <section class="text-center" style="background-color: #D9C5B2;">
-    
+
     <form class=" d-flex" method="POST" action="{% url 'search' %}">
         {% csrf_token%}
         <input type="search" class="form-control" placeholder="Search" aria-label="Search" name="searched"/>

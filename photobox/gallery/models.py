@@ -25,6 +25,11 @@ class Image(models.Model):
     def __str__(self): 
         return self.caption
 
+    @classmethod
+    def search_category(cls,search_term) :
+        search_results = cls.objects.filter(category__title__icontains=search_term)
+        return search_results    
+
 
 
 

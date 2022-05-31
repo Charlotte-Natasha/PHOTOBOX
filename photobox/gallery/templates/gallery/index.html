@@ -38,15 +38,16 @@
             <h5 class="card-title">Caption: {{photo.caption}}</h5>
             <p class="card-text">Location: {{photo.location}}</p>
             <p>Time: {{photo.date_created}}</p>
+            
             <!-- Button trigger modal  -->
             <button type="button" class="btn text-white" style="background-color: #14110F;" data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"> View </button>
+                data-bs-target="#staticBackdrop{{photo.id}}"> View </button>
         </div>
     </div>
     {% endfor %}
     <!-- Modal  -->
     {% for photo in photos %}
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="staticBackdrop{{photo.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -63,6 +64,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 {% endfor %} 
 {% endblock %}

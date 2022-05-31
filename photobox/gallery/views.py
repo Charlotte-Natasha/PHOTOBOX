@@ -27,10 +27,12 @@ def location(request, pk):
     return render(request, 'gallery/index.html', context)
 
 def search(request):
-    if request.method == "POST":
-        searched = request.POST('searched')
-        category = Category.objects.filter(title__contains=searched)
 
-        return render(request, 'gallery/category.html', {'searched':searched, 'category':category})
+    if 'searched' in request.GET and request.GET["searched"]:
+        search_term = request.GET.get("searched")
+        searched_images=Image.search_category(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'gallery/category.html', {'searched_images':searched_images, 'category':category})
     else:
         return render(request, 'gallery/category.html', {})   
