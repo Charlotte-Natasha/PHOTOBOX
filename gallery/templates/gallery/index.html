@@ -31,20 +31,24 @@
 </div>
 
 <div class="container " style="display: flex; justify-content:center;">
-    {% for photo in photos %}
-    <div class="card" style="width: 18rem; margin: 8px;">
-        <img height="180vh" src="{{photo.image.url}}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Caption: {{photo.caption}}</h5>
-            <p class="card-text">Location: {{photo.location}}</p>
-            <p>Time: {{photo.date_created}}</p>
-            
-            <!-- Button trigger modal  -->
-            <button type="button" class="btn text-white" style="background-color: #14110F;" data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop{{photo.id}}"> View </button>
+    <div class="row">
+        {% for photo in photos %}
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem; margin: 8px;">
+                <img height="180vh" src="{{photo.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Caption: {{photo.caption}}</h5>
+                    <p class="card-text">Location: {{photo.location}}</p>
+                    <p>Time: {{photo.date_created}}</p>
+    
+                    <!-- Button trigger modal  -->
+                    <button type="button" class="btn text-white" style="background-color: #14110F;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop{{photo.id}}"> View </button>
+                </div>
+            </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
     <!-- Modal  -->
     {% for photo in photos %}
     <div class="modal fade" id="staticBackdrop{{photo.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
